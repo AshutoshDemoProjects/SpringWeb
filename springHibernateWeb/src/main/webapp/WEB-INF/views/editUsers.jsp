@@ -7,20 +7,9 @@
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Spring5 MVC Hibernate Demo</title>
-        <style type="text/css">
-            .error {
-                color: red;
-            }
-            table {
-                width: 50%;
-                border-collapse: collapse;
-                border-spacing: 0px;
-            }
-            table td {
-                border: 1px solid #565454;
-                padding: 20px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.2/css/bootstrap.min.css" />
+ <script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>        
+ <script type="text/javascript" src="webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
         <h1>Input Form</h1>
@@ -47,7 +36,7 @@
         </form:form>
          
         <h2>Users List</h2>
-        <table>
+        <table class="table">
             <tr>
                 <td><strong>Name</strong></td>
                 <td><strong>Email</strong></td>
