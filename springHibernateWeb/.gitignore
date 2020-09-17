@@ -1,3 +1,15 @@
 /.project
 /.classpath
 /target/
+/target/
+*/target/**
+**/META-INF/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
