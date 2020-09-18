@@ -6,13 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import edu.iet.springMvcDemo.service.UserService;
+import edu.iet.springMvcDemo.service.UserServiceImpl;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
 	@GetMapping("/allUser")
 	String forAllUser(Model model) {
 		model.addAttribute("users", userService.getAllUser());

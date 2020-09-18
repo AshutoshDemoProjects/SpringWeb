@@ -1,9 +1,10 @@
 package edu.iet.springMvcDemo.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,5 +42,26 @@ public class WelcomeContoller {
 		userService.addUser(u);
 		return "redirect:/home";
 
+	}
+	@GetMapping("/login")
+	String forLoginPage(Model model) {
+		model.addAttribute("command", new User());
+		return "login";
+	}
+	@PostMapping("/validate")
+	String forValidation(@ModelAttribute("command") User u, Model model,HttpSession session){
+		User user=null;
+		try {
+			user=userService.validate(u);
+		}catch(Exception e) {
+			model.addAttribute("msg", "Invalid userName Password....");
+		}
+		if(user==null)
+			return "redirect:/login";
+		else {
+			session.setAttribute("user", user);
+			return "redirect:/home";
+		}
+			
 	}
 }
